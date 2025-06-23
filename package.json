@@ -1,0 +1,13 @@
+{
+  "name": "mastering-live-cash-minimal",
+  "version": "1.0.0",
+  "description": "Caderno de Estudos - Layout Básico",
+  "scripts": {
+    "build": "echo 'Build concluído - arquivos estáticos prontos'",
+    "dev": "python3 -m http.server 8000 --directory public"
+  },
+  "keywords": ["poker", "study"],
+  "author": "Lucas",
+  "license": "MIT"
+}
+
