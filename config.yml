@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Configurações"
+    files:
+      - file: "content/settings/general.yml"
+        label: "Configurações Gerais"
+        name: "general"
+        fields:
+          - {label: "Título do Site", name: "site_title", widget: "string", default: "Mastering Live Cash"}
+          - {label: "Subtítulo", name: "site_subtitle", widget: "string", default: "Caderno de Anotações - Raise Your Edge"}
+          - {label: "Frase Motivacional", name: "motivational_quote", widget: "text"}
+          - {label: "Progresso Atual (%)", name: "current_progress", widget: "number", min: 0, max: 100}
+          - {label: "Módulos Concluídos", name: "completed_modules", widget: "number", min: 0, max: 15}
+
+  - name: "notes"
+    label: "Anotações"
+    folder: "content/notes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Módulo", name: "module", widget: "select", options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]}
+      - {label: "Aula", name: "lesson", widget: "string"}
+      - {label: "Chave", name: "key", widget: "string", hint: "Ex: modulo2_opening_ranges_theory"}
+      - {label: "Status", name: "status", widget: "select", options: ["pendente", "concluido"], default: "pendente"}
+      - {label: "Conteúdo", name: "body", widget: "markdown"}
+
+  - name: "ranges"
+    label: "Ranges"
+    folder: "content/ranges"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome", name: "title", widget: "string"}
+      - {label: "Categoria", name: "category", widget: "select", options: ["Opening", "3Betting", "Flatting", "SB Defense", "Isolation", "Overlimping", "Postflop"]}
+      - {label: "Posição", name: "position", widget: "select", options: ["UTG", "UTG+1", "UTG+2", "MP+1", "MP+2", "HJ", "CO", "BTN", "SB", "BB"], required: false}
+      - {label: "Imagem", name: "image", widget: "image"}
+      - {label: "Descrição", name: "description", widget: "text", required: false}
+
